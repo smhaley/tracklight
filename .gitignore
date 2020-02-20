@@ -7,4 +7,4 @@ driver/
 *.log
 static
 venv/
-
+config.json

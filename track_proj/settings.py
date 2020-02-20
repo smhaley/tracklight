@@ -29,7 +29,7 @@ SECRET_KEY = config.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['52.6.137.60']
+ALLOWED_HOSTS = ['52.6.137.60', 'localhost']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = config.get('EMAIL_HOST_USER')
