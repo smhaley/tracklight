@@ -1,0 +1,10 @@
+*.sqlite3
+geckodriver
+manage.py
+requirements.txt
+*.sock
+driver/
+*.log
+static
+venv/
+

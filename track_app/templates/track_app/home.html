@@ -1,0 +1,110 @@
+{% extends 'track_app/base.html' %}
+{% block content %}
+{% load static %}
+
+
+<div id="loading">
+   <!-- <p style="text-align:center"><img src="{% static "track_app/loader.gif" %}" alt = "loading"/></p>-->
+    <div align="center">
+	    <div class="loader"></div>
+    </div>
+</div>
+
+    <div id="content">
+        <form action="/" method="post" onsubmit="loading()">
+            <div class="content row">
+                {% csrf_token %}
+
+                <div class="col-lg-10" style="padding-left: 20px">
+                    {{ form.url_post }}
+                    <br>
+                </div>
+
+                <div class="ml-auto" style="padding-right: 15px">
+                    <span class="label label-default">Delay:</span></h5>
+                     <!--<label class="col-sm-1 col-form-label"><b>Set Delay:</b></label>-->
+                        {{ form.delay }}
+                </div>
+            </div>
+            <br>
+
+            <div class = "float-right" style="padding-left: 61px;">
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            </div>
+        </form>
+    </div>
+
+            <div class="container">
+            <div class="container">
+
+                    {% if status == 0 %}
+
+                <h5>We had trouble contacting <b>{{ searched }}</b>. Please check your number and dial again.</h5>
+
+                    {% elif status == 1 %}
+
+                        <h5>We found {{ number }} trackers on <b>{{ searched }}</b>:</h5>
+
+                            <div class="container p-3 my-3">
+                                {% for result in results%}
+                                    <li>{{ result }}</li>
+                                {% endfor %}
+                            </div>
+                    {% elif status == 2 %}
+                         <h5>We located no trackers on <b>{{ searched }}</b></h5>
+                            <div class="container">
+                                <p>This could be wonderful! But, if it seems to good to be true, it probably is.
+                                The site may be blocking traffic from large commercial web hosts (like the one this
+                                site is hosted from).</p>
+                            </div>
+                    {% elif status == 3 %}
+                        <h5><b>We had trouble obtaining networking data from {{ searched }}.</b></h5>
+                        <h5><b>The below list is likely incomplete!</b></h5>
+                        <p>A major cause of this issue is a site's performance. If a site takes longer than TrackLight is willing
+                        wait, no networking data will be obtained. </p>
+
+                        <div class="container">
+                            <h6>We currently found {{ number }} trackers on <b>{{ searched }}</b>:</h6>
+
+                            <div class="container p-3 my-3">
+                                {% for result in results%}
+                                    <li>{{ result }}</li>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% elif status == 4 %}
+
+                        <h5>We found {{ number }} trackers on <b>{{ searched }}</b>:</h5>
+
+                            <div class="container p-3 my-3">
+                                {% for result in results%}
+                                    <li>{{ result }}</li>
+                                {% endfor %}
+                            </div>
+                    {% elif status == 5 %}
+
+                <h5>Looks like this URL may not be valid. Mind trying again?</h5>
+
+
+                    {% else %}
+                    <h5 style="text-align:center"><b>Welcome to Track Light</b></h5>
+                        <p style="text-align:left">Tracklight is a basic website scanning app. The goal is simple, give
+                            users quick and simple feedback about the trackers present on websites.
+                        The app scans sites for the presence of 500 of the top web tracking services. </p>
+
+                        <p style="text-align:left">To use, simply enter a URL into the search bar and submit. Depending
+                            on site performance, it may take several seconds for all tracker calls to be made. The default
+                            delay before TrackLight scans is four seconds. Users may adjust this <b>delay</b> if they suspect
+                            trackers are missing from the output or site performance has degraded.
+
+                         <p style="text-align:left">Just a quick note. If you drop the protocol from the URL, https is added.
+                            Attempts to have TrackLight scan a non https site may lead to insufficient output.
+                            For best results, input the <b>full URL</b> you intend to scan.</p>
+                    <p style="text-align:left">Check the <a href="/about/">About</a> page for more info.</p>
+
+                    {% endif %}
+
+
+            </div>
+        </div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'track_app/base.html' %}
+
+{% block content %}
+    <h5 style="text-align:center"><b>Track Light</b></h5>
+
+    <div container>
+        <p style="text-align:left">
+            The goal of TrackLight is to present internet users with the various tracking services
+            embedded on websites. Whether it is tracking software from Google, Adobe, Facebook, or others, users of the
+            net have a right to know who is watching.</p>
+        <p style="text-align:left">Tracklight currently scans sites for the presence of
+            <a href="https://whotracks.me/trackers.html">the top 500</a> or so tracking
+            companies. More info about the trackers can be found
+            <a href="https://whotracks.me/blog/what_is_a_tracker.html">here</a>. </p>
+        <p style="text-align:left">
+            TrackLight is fairly simple under the hood. The app scans entered URLs
+            for trackers in both the site's source HTML and the network calls made by the site.</p>
+        <p style="text-align:left">For more information on trackers, please check out <a href="https://whotracks.me/">
+            whotracks.me</a>.</p>
+</div>
+{% endblock content %}
