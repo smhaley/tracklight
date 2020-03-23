@@ -54,6 +54,7 @@ def get_network_dat(url, sleep_time):
     """Construct list of sites called through external network calls"""
     path_to_driver = '/home/ubuntu/track_proj/geckodriver'
     path_to_log = '/home/ubuntu/track_proj/geckodriver.log'
+ 
     options = webdriver.FirefoxOptions()
     options.headless = True
     driver = webdriver.Firefox(options=options, executable_path=path_to_driver, service_log_path=path_to_log)
