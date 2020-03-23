@@ -1,5 +1,5 @@
 from selenium import webdriver
-from selenium.common.exceptions import TimeoutException, WebDriverException, JavascriptException, \
+from selenium.common.exceptions import TimeoutException, WebDriverException, JavascriptException,
                                         InvalidArgumentException
 from itertools import product
 from urllib.parse import urlparse
