@@ -1,7 +1,5 @@
 # tracklight
 
-http://52.6.137.60 
-
 A simple tool for scanning webpage HTML and JS calls for 500 of the top webpage tracking services.
 
 Core tracking list, tracker_set.json, was compiled by scraping tracker name and "operates under" data from the top 500 listings on https://whotracks.me/trackers.html.
